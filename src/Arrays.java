@@ -5,7 +5,7 @@ public class Arrays {
     protected int[] bigArr = new int[15000];
 
     private void fillArr(int[] array){
-        for(int i = 0; i <= array.length; i++){
+        for(int i = 0; i < array.length; i++){
             array[i] = new Random().nextInt();
         }
     }

@@ -36,7 +36,7 @@ public class Controller {
         getSmallArray();
         getBigArray();
         printArray();
-        sorts.bubbleSort(smallArr);
+        sorts.heapSort(smallArr);
         printArray();
     }
 

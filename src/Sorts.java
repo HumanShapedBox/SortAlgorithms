@@ -19,7 +19,7 @@ public class Sorts {
             for(int i = 0; i < array.length; i++){
                 int min = i;
                 for(int j = i+1; j < array.length; j++){
-                    if(array[j] < min){min = j;}
+                    if(array[j] < array[min]){min = j;}
                 }
                 if(min != i){
                     int temp = array[i];
@@ -60,11 +60,22 @@ public class Sorts {
         if(start < rightPos){quickSort(array, start, rightPos);}
     }
 
-    public void heapSort(int[] array, int heapSize, int rootIndex){
+    public void heapSort(int[] array){
+        for(int i = array.length / 2 - 1; i >= 0; i--){
+            heapHelper(array, array.length, i);
+        }
+        for(int i = array.length - 1; i>= 0; i--){
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+            heapHelper(array, i, 0);
+        }
+    }
+
+    private void heapHelper(int[] array, int heapSize, int rootIndex){
         int largest = rootIndex;
         int leftChild = 2 * rootIndex + 1;
         int rightChild = 2 * rootIndex + 2;
-
         if(leftChild < heapSize && array[leftChild] > array[largest]){largest = leftChild;}
 
         if(rightChild < heapSize && array[rightChild] > array[largest]){largest = rightChild;}
@@ -74,7 +85,7 @@ public class Sorts {
             array[rootIndex] = array[largest];
             array[largest] = temp;
 
-            heapSort(array, heapSize, largest);
+            heapHelper(array, heapSize, largest);
         }
     }
 }

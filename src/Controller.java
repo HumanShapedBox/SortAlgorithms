@@ -36,7 +36,7 @@ public class Controller {
         getSmallArray();
         getBigArray();
         printArray();
-        sorts.heapSort(smallArr);
+        sorts.quickSort(smallArr);
         printArray();
     }
 

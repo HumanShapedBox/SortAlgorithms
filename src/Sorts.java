@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Sorts {
 
     public void bubbleSort(int[] array){
@@ -104,4 +106,5 @@ public class Sorts {
             heapHelper(array, heapSize, largest);
         }
     }
+
 }

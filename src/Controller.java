@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Controller {
@@ -6,8 +7,8 @@ public class Controller {
     //time
     // chooseYourFighter
     // comparator
-    protected int[] smallArr = new int[50];
-    protected int[] bigArr = new int[15000];
+    private int[] smallArr = new int[50];
+    private int[] bigArr = new int[15000];
 
     Sorts sorts = new Sorts();
 
@@ -33,12 +34,69 @@ public class Controller {
         System.out.println();
     }
     public void start(){
-        getSmallArray();
-        getBigArray();
-        printArray();
+//        getSmallArray();
+//        getBigArray();
+        chooseSort();
+//        printArray();
         sorts.quickSort(smallArr);
-        printArray();
+//        printArray();
     }
+
+    private int chooseSort(){
+        Scanner sc = new Scanner(System.in);
+        int sortNum = 0;
+        System.out.println("Введи номер сортировки:\n" +
+                "1 - Пузырьковая сортировка\n" +
+                "2 - Сортировка выбором\n" +
+                "3 - Сортировка вставками\n" +
+                "4 - Быстрая сортировка\n" +
+                "5 - Пирамидальная сортировка");
+        try{
+            sortNum = sc.nextInt();
+            return sortNum;
+        }catch (NumberFormatException e){
+            System.out.println("Ой-ой, что-то пошло не так");
+        }finally {
+            return sortNum;
+        }
+    }
+
+    public void sortBattle(){
+        int sort = chooseSort();
+        startSmallSort(sort);
+
+
+    }
+
+    private void compareSorts(){
+
+    }
+
+    private void startSmallSort(int sortNum){
+        getSmallArray();
+        //засекай время исполнения
+        switch (sortNum) {
+            case 1:
+                sorts.bubbleSort(smallArr);
+                break;
+            case 2:
+                sorts.selectionSort(smallArr);
+                break;
+            case 3:
+                sorts.insertionSort(smallArr);
+                break;
+            case 4:
+                sorts.quickSort(smallArr);
+                break;
+            case 5:
+                sorts.heapSort(smallArr);
+                break;
+            default:
+                chooseSort();
+        }
+        // засекла, да?
+    }
+
 
 
 

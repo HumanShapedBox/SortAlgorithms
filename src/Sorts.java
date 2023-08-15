@@ -1,6 +1,22 @@
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Sorts {
+
+    private AtomicInteger counter = new AtomicInteger();
+
+    public Sorts(){
+        this.counter = null;
+    }
+
+    public int getCounter(){
+       int count = Integer.parseInt(String.valueOf(this.counter));
+       return count;
+    }
+
+    public void resetCounter(){
+        this.counter = null;
+    }
 
     public void bubbleSort(int[] array){
         boolean needSort;
@@ -13,6 +29,7 @@ public class Sorts {
                     array[i+1] = temp;
                     needSort = true;
                 }
+                counter.incrementAndGet();
             }
         }while (needSort);
     }
@@ -28,6 +45,7 @@ public class Sorts {
                     array[i] = array[min];
                     array[min] = temp;
                 }
+                counter.incrementAndGet();
             }
     }
 
@@ -39,7 +57,9 @@ public class Sorts {
                     array[i] = array[j];
                     array[j] = temp;
                 }
+                counter.incrementAndGet();
             }
+            counter.incrementAndGet();
         }
     }
 
@@ -69,6 +89,7 @@ public class Sorts {
                 arr[i] = arr[j];
                 arr[j] = swapTemp;
             }
+            counter.incrementAndGet();
         }
 
         int swapTemp = arr[i+1];
@@ -81,12 +102,14 @@ public class Sorts {
     public void heapSort(int[] array){
         for(int i = array.length / 2 - 1; i >= 0; i--){
             heapHelper(array, array.length, i);
+            counter.incrementAndGet();
         }
         for(int i = array.length - 1; i>= 0; i--){
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
             heapHelper(array, i, 0);
+            counter.incrementAndGet();
         }
     }
 

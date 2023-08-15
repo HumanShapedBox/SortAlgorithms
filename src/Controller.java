@@ -1,9 +1,8 @@
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Controller {
-    public AtomicInteger counter = new AtomicInteger();
+
     //time
     // comparator
     private int[] smallArr = new int[50];
@@ -33,12 +32,7 @@ public class Controller {
         System.out.println();
     }
     public void start(){
-//        getSmallArray();
-//        getBigArray();
-        chooseSort();
-//        printArray();
-        sorts.quickSort(smallArr);
-//        printArray();
+        smallSortBattle();
     }
 
     private int chooseSort(){
@@ -60,11 +54,11 @@ public class Controller {
         }
     }
 
-    public void sortBattle(){
+    public void smallSortBattle(){
         int sort = chooseSort();
         startSmallSort(sort);
-
-
+        sort = chooseSort();
+        startSmallSort(sort);
     }
 
     private void compareSorts(){
@@ -73,7 +67,6 @@ public class Controller {
 
     private void startSmallSort(int sortNum){
         getSmallArray();
-        //засекай время исполнения
         switch (sortNum) {
             case 1:
                 sorts.bubbleSort(smallArr);
@@ -93,12 +86,10 @@ public class Controller {
             default:
                 chooseSort();
         }
-        // засекла, да?
     }
 
     private void startBigSort(int sortNum){
-        getSmallArray();
-        //засекай время исполнения
+        getBigArray();
         switch (sortNum) {
             case 1:
                 sorts.bubbleSort(bigArr);
@@ -118,7 +109,6 @@ public class Controller {
             default:
                 chooseSort();
         }
-        // засекла, да?
     }
 
 

@@ -21,6 +21,10 @@ public class Controller {
         startBigSort(sort);
     }
 
+    public void results(){
+        //печатает статистику, делает вывод, кто молодец
+    }
+
 
     private int chooseSort(){
         Scanner sc = new Scanner(System.in);

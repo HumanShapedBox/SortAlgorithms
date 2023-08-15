@@ -5,7 +5,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Controller {
     public AtomicInteger counter = new AtomicInteger();
     //time
-    // chooseYourFighter
     // comparator
     private int[] smallArr = new int[50];
     private int[] bigArr = new int[15000];
@@ -97,7 +96,30 @@ public class Controller {
         // засекла, да?
     }
 
-
+    private void startBigSort(int sortNum){
+        getSmallArray();
+        //засекай время исполнения
+        switch (sortNum) {
+            case 1:
+                sorts.bubbleSort(bigArr);
+                break;
+            case 2:
+                sorts.selectionSort(bigArr);
+                break;
+            case 3:
+                sorts.insertionSort(bigArr);
+                break;
+            case 4:
+                sorts.quickSort(bigArr);
+                break;
+            case 5:
+                sorts.heapSort(bigArr);
+                break;
+            default:
+                chooseSort();
+        }
+        // засекла, да?
+    }
 
 
 

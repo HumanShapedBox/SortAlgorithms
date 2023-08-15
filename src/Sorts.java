@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Sorts {
 
-    private AtomicInteger counter = new AtomicInteger();
+    private AtomicInteger counter;
 
     public Sorts(){
         this.counter = null;

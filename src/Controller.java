@@ -2,38 +2,25 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Controller {
-
-    //time
-    // comparator
-    private int[] smallArr = new int[50];
-    private int[] bigArr = new int[15000];
-
     Sorts sorts = new Sorts();
+    ArraysForSort arr = new ArraysForSort();
 
-    private void fillArr(int[] array){
-        for(int i = 0; i < array.length; i++){
-            array[i] = new Random().nextInt(101);
-        }
-    }
-    private int[] getSmallArray(){
-        fillArr(smallArr);
-        return this.smallArr;
-    }
-
-    private int[] getBigArray(){
-        fillArr(bigArr);
-        return this.bigArr;
+    public void smallSortBattle(){
+        // Поддянуть статистику из анализатора
+        int sort = chooseSort();
+        startSmallSort(sort);
+        sort = chooseSort();
+        startSmallSort(sort);
     }
 
-    private void printArray(){
-        for (int element: this.smallArr) {
-            System.out.printf("%d ", element);
-        }
-        System.out.println();
+    public void bigSortBattle(){
+        // Поддянуть статистику из анализатора
+        int sort = chooseSort();
+        startBigSort(sort);
+        sort = chooseSort();
+        startBigSort(sort);
     }
-    public void start(){
-        smallSortBattle();
-    }
+
 
     private int chooseSort(){
         Scanner sc = new Scanner(System.in);
@@ -54,19 +41,9 @@ public class Controller {
         }
     }
 
-    public void smallSortBattle(){
-        int sort = chooseSort();
-        startSmallSort(sort);
-        sort = chooseSort();
-        startSmallSort(sort);
-    }
-
-    private void compareSorts(){
-
-    }
-
     private void startSmallSort(int sortNum){
-        getSmallArray();
+        int[] smallArr= arr.getSmallArray();
+        arr.getSmallArray();
         switch (sortNum) {
             case 1:
                 sorts.bubbleSort(smallArr);
@@ -89,7 +66,7 @@ public class Controller {
     }
 
     private void startBigSort(int sortNum){
-        getBigArray();
+        int[] bigArr= arr.getBigArray();
         switch (sortNum) {
             case 1:
                 sorts.bubbleSort(bigArr);
@@ -110,7 +87,6 @@ public class Controller {
                 chooseSort();
         }
     }
-
 
 
 }

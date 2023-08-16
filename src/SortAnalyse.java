@@ -6,7 +6,7 @@ public class SortAnalyse {
     private int operations;
     private float time;
 
-    Sorts sorts = new Sorts();
+    Sorts sorts;
 
 
     public SortAnalyse(){

@@ -1,45 +1,13 @@
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Sorts {
+public abstract class Sorts implements GetSortData{
 
-    private AtomicInteger counter;
-    private long timer;
+    protected AtomicInteger counter;
+    protected long timer;
 
-    public Sorts(){
-        this.counter = null;
-        this.timer = 0;
-    }
-
-    public int getCounter(){
-       int count = Integer.parseInt(String.valueOf(this.counter));
-       return count;
-    }
-
-    public long getTimer(){
-        return this.timer;
-    }
-
-    public void resetCounter(){
-        this.counter = null;
-    }
-
-    public void bubbleSort(int[] array){
-        long start = System.currentTimeMillis();
-        boolean needSort;
-        do{
-            needSort = false;
-            for(int i = 0; i < array.length - 1; i++){
-                if(array[i] > array[i+1]){
-                    int temp = array[i];
-                    array[i] = array[i+1];
-                    array[i+1] = temp;
-                    needSort = true;
-                }
-                counter.incrementAndGet();
-            }
-        }while (needSort);
-        long end = System.currentTimeMillis();
-        this.timer = end - start;
+    public Sorts(AtomicInteger counter, long timer){
+        this.counter = counter;
+        this.timer = timer;
     }
 
     public void selectionSort(int[] array){

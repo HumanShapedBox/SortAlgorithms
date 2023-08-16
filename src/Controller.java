@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Controller {
-    Sorts sorts = new Sorts();
+    Sorts sorts;
     ArraysForSort arr = new ArraysForSort();
     SortAnalyse compare = new SortAnalyse();
 
@@ -11,7 +11,6 @@ public class Controller {
         startSmallSort(sort);
         compare.setOperationsNum();
         compare.setTime();
-        sorts.resetCounter();
         sort = chooseSort();
         startSmallSort(sort);
 

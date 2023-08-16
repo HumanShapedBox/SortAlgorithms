@@ -4,13 +4,17 @@ import java.util.Scanner;
 public class Controller {
     Sorts sorts = new Sorts();
     ArraysForSort arr = new ArraysForSort();
+    SortAnalyse compare = new SortAnalyse();
 
     public void smallSortBattle(){
-        // Поддянуть статистику из анализатора
         int sort = chooseSort();
         startSmallSort(sort);
+        compare.setOperationsNum();
+        compare.setTime();
+        sorts.resetCounter();
         sort = chooseSort();
         startSmallSort(sort);
+
     }
 
     public void bigSortBattle(){

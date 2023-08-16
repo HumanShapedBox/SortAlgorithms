@@ -22,12 +22,12 @@ public class SortAnalyse {
         return this.time;
     }
 
-    public void setOperationsNum(int num){
+    public void setOperationsNum(){
         this.operations = sorts.getCounter();
     }
 
-    public void setTime(float time){
-        this.time = time; //То же, что и в операции
+    public void setTime(){
+        this.time = sorts.getTimer();
     }
 
     private void compareSorts(){

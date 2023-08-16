@@ -4,9 +4,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Sorts {
 
     private AtomicInteger counter;
+    private long timer;
 
     public Sorts(){
         this.counter = null;
+        this.timer = 0;
     }
 
     public int getCounter(){
@@ -14,11 +16,16 @@ public class Sorts {
        return count;
     }
 
+    public long getTimer(){
+        return this.timer;
+    }
+
     public void resetCounter(){
         this.counter = null;
     }
 
     public void bubbleSort(int[] array){
+        long start = System.currentTimeMillis();
         boolean needSort;
         do{
             needSort = false;
@@ -32,9 +39,12 @@ public class Sorts {
                 counter.incrementAndGet();
             }
         }while (needSort);
+        long end = System.currentTimeMillis();
+        this.timer = end - start;
     }
 
     public void selectionSort(int[] array){
+        long start = System.currentTimeMillis();
             for(int i = 0; i < array.length; i++){
                 int min = i;
                 for(int j = i+1; j < array.length; j++){
@@ -47,9 +57,12 @@ public class Sorts {
                 }
                 counter.incrementAndGet();
             }
+            long end = System.currentTimeMillis();
+            this.timer = end - start;
     }
 
     public void insertionSort(int[] array){
+        long start = System.currentTimeMillis();
         for(int i = 0; i < array.length; i++){
             for(int j = i+1; j < array.length; j++){
                 if(array[j] < array[i]){
@@ -61,12 +74,17 @@ public class Sorts {
             }
             counter.incrementAndGet();
         }
+        long end = System.currentTimeMillis();
+        this.timer = end - start;
     }
 
     public void quickSort(int[] array){
+        long start = System.currentTimeMillis();
         int begin = 0;
         int end = array.length - 1;
         sort(array, begin, end);
+        long endTime = System.currentTimeMillis();
+        this.timer = endTime - start;
     }
     private void sort(int arr[], int begin, int end) {
         if (begin < end) {
@@ -100,6 +118,7 @@ public class Sorts {
     }
 
     public void heapSort(int[] array){
+        long start = System.currentTimeMillis();
         for(int i = array.length / 2 - 1; i >= 0; i--){
             heapHelper(array, array.length, i);
             counter.incrementAndGet();
@@ -111,6 +130,8 @@ public class Sorts {
             heapHelper(array, i, 0);
             counter.incrementAndGet();
         }
+        long end = System.currentTimeMillis();
+        this.timer = end - start;
     }
 
     private void heapHelper(int[] array, int heapSize, int rootIndex){

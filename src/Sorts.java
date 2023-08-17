@@ -10,24 +10,6 @@ public abstract class Sorts implements GetSortData{
         this.timer = timer;
     }
 
-    public void selectionSort(int[] array){
-        long start = System.currentTimeMillis();
-            for(int i = 0; i < array.length; i++){
-                int min = i;
-                for(int j = i+1; j < array.length; j++){
-                    if(array[j] < array[min]){min = j;}
-                }
-                if(min != i){
-                    int temp = array[i];
-                    array[i] = array[min];
-                    array[min] = temp;
-                }
-                counter.incrementAndGet();
-            }
-            long end = System.currentTimeMillis();
-            this.timer = end - start;
-    }
-
     public void insertionSort(int[] array){
         long start = System.currentTimeMillis();
         for(int i = 0; i < array.length; i++){

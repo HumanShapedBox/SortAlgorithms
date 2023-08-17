@@ -19,8 +19,12 @@ public class BubbleSort extends Sorts{
 
     @Override
     public int getCounter() {
-        int count = Integer.parseInt(String.valueOf(this.counter));
-        return count;
+        try{
+            int count = Integer.parseInt(String.valueOf(this.counter));
+            return count;
+        }catch (NumberFormatException e){
+            return 0;
+        }
     }
 
     @Override

@@ -5,29 +5,6 @@ public class SelectionSort extends Sorts {
     public SelectionSort(){
         super(null, 0, "Сортировка выбором");
     }
-
-    @Override
-    public String sortName() {
-        return this.name;
-    }
-
-    @Override
-    public int getCounter() {
-        try{
-            return Integer.parseInt(String.valueOf(this.counter));
-        }catch (NumberFormatException e){
-            return 0;
-        }
-    }
-
-    @Override
-    public void resetCounter() {this.counter = null;}
-
-    @Override
-    public long getTimer() {
-        return this.timer;
-    }
-
     @Override
     public void doSort(int[] array) {
         long start = System.currentTimeMillis();

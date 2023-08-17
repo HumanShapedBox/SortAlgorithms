@@ -5,24 +5,6 @@ public class HeapSort extends Sorts {
     public HeapSort(){
         super(null, 0, "Пирамидальная сортировка");
     }
-    @Override
-    public String sortName() {
-        return this.name;
-    }
-
-    @Override
-    public int getCounter() {
-        try{
-            return Integer.parseInt(String.valueOf(this.counter));
-        }catch (NumberFormatException e){
-            return 0;
-        }
-    }
-
-    @Override
-    public long getTimer() {
-        return this.timer;
-    }
 
     @Override
     public void doSort(int[] array) {
@@ -61,10 +43,5 @@ public class HeapSort extends Sorts {
 
             heapHelper(array, heapSize, largest);
         }
-    }
-
-    @Override
-    public void resetCounter() {
-        this.counter = null;
     }
 }

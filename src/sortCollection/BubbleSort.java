@@ -6,29 +6,6 @@ public class BubbleSort extends Sorts {
         super(null, 0, "Пузырьковая сортировка");
     }
 
-    public void resetCounter(){
-        this.counter = null;
-    }
-
-    @Override
-    public String sortName() {
-        return this.name;
-    }
-
-    @Override
-    public int getCounter() {
-        try{
-            return Integer.parseInt(String.valueOf(this.counter));
-        }catch (NumberFormatException e){
-            return 0;
-        }
-    }
-
-    @Override
-    public long getTimer() {
-        return this.timer;
-    }
-
     @Override
     public void doSort(int[] array) {
         long start = System.currentTimeMillis();

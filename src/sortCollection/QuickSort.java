@@ -5,24 +5,6 @@ public class QuickSort extends Sorts {
     public QuickSort(){
         super(null, 0, "Быстрая сортировка");
     }
-    @Override
-    public String sortName() {
-        return this.name;
-    }
-
-    @Override
-    public int getCounter() {
-        try{
-            return Integer.parseInt(String.valueOf(this.counter));
-        }catch (NumberFormatException e){
-            return 0;
-        }
-    }
-
-    @Override
-    public long getTimer() {
-        return this.timer;
-    }
 
     @Override
     public void doSort(int[] array) {
@@ -61,10 +43,5 @@ public class QuickSort extends Sorts {
         arr[end] = swapTemp;
 
         return i+1;
-    }
-
-    @Override
-    public void resetCounter() {
-        this.counter = null;
     }
 }

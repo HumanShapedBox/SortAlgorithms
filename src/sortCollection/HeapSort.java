@@ -1,10 +1,9 @@
-public class HeapSort extends Sorts{
+package sortCollection;
 
-    private String name;
+public class HeapSort extends Sorts {
 
     public HeapSort(){
-        super(null, 0);
-        this.name = "Пирамидальная сортировка";
+        super(null, 0, "Пирамидальная сортировка");
     }
     @Override
     public String sortName() {
@@ -14,8 +13,7 @@ public class HeapSort extends Sorts{
     @Override
     public int getCounter() {
         try{
-            int count = Integer.parseInt(String.valueOf(this.counter));
-            return count;
+            return Integer.parseInt(String.valueOf(this.counter));
         }catch (NumberFormatException e){
             return 0;
         }

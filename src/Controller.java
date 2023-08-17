@@ -1,8 +1,8 @@
-import java.util.Random;
+import sortCollection.*;
+
 import java.util.Scanner;
 
 public class Controller {
-    Sorts sorts;
     ArraysForSort arr = new ArraysForSort();
     SortAnalyse compare = new SortAnalyse();
 
@@ -53,19 +53,24 @@ public class Controller {
         arr.getSmallArray();
         switch (sortNum) {
             case 1:
-                sorts.bubbleSort(smallArr);
+                BubbleSort sort1 = new BubbleSort();
+                sort1.doSort(smallArr);
                 break;
             case 2:
-                sorts.selectionSort(smallArr);
+                SelectionSort sort2 = new SelectionSort();
+                sort2.doSort(smallArr);
                 break;
             case 3:
-                sorts.insertionSort(smallArr);
+                InsertionSort sort3 = new InsertionSort();
+                sort3.doSort(smallArr);
                 break;
             case 4:
-                sorts.quickSort(smallArr);
+                QuickSort sort4 = new QuickSort();
+                sort4.doSort(smallArr);
                 break;
             case 5:
-                sorts.heapSort(smallArr);
+                HeapSort sort5 = new HeapSort();
+                sort5.doSort(smallArr);
                 break;
             default:
                 chooseSort();
@@ -76,19 +81,24 @@ public class Controller {
         int[] bigArr= arr.getBigArray();
         switch (sortNum) {
             case 1:
-                sorts.bubbleSort(bigArr);
+                BubbleSort sort1 = new BubbleSort();
+                sort1.doSort(bigArr);
                 break;
             case 2:
-                sorts.selectionSort(bigArr);
+                SelectionSort sort2 = new SelectionSort();
+                sort2.doSort(bigArr);
                 break;
             case 3:
-                sorts.insertionSort(bigArr);
+                InsertionSort sort3 = new InsertionSort();
+                sort3.doSort(bigArr);
                 break;
             case 4:
-                sorts.quickSort(bigArr);
+                QuickSort sort4 = new QuickSort();
+                sort4.doSort(bigArr);
                 break;
             case 5:
-                sorts.heapSort(bigArr);
+                HeapSort sort5 = new HeapSort();
+                sort5.doSort(bigArr);
                 break;
             default:
                 chooseSort();

@@ -1,13 +1,10 @@
-import java.text.ParseException;
+package sortCollection;
 
-public class SelectionSort extends Sorts{
+public class InsertionSort extends Sorts {
 
-    private String name;
-    public SelectionSort(){
-        super(null, 0);
-        this.name = "Сортировка выбором";
+    public InsertionSort(){
+        super(null, 0, "Сортировка вставками");
     }
-
     @Override
     public String sortName() {
         return this.name;
@@ -16,15 +13,11 @@ public class SelectionSort extends Sorts{
     @Override
     public int getCounter() {
         try{
-            int count = Integer.parseInt(String.valueOf(this.counter));
-            return count;
+            return Integer.parseInt(String.valueOf(this.counter));
         }catch (NumberFormatException e){
             return 0;
         }
     }
-
-    @Override
-    public void resetCounter() {this.counter = null;}
 
     @Override
     public long getTimer() {
@@ -35,14 +28,13 @@ public class SelectionSort extends Sorts{
     public void doSort(int[] array) {
         long start = System.currentTimeMillis();
         for(int i = 0; i < array.length; i++){
-            int min = i;
             for(int j = i+1; j < array.length; j++){
-                if(array[j] < array[min]){min = j;}
-            }
-            if(min != i){
-                int temp = array[i];
-                array[i] = array[min];
-                array[min] = temp;
+                if(array[j] < array[i]){
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+                counter.incrementAndGet();
             }
             counter.incrementAndGet();
         }
@@ -50,4 +42,8 @@ public class SelectionSort extends Sorts{
         this.timer = end - start;
     }
 
+    @Override
+    public void resetCounter() {
+        this.counter = null;
+    }
 }

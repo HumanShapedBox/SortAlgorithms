@@ -1,3 +1,5 @@
+package sortCollection;
+
 public interface GetSortData {
     String sortName();
     int getCounter();

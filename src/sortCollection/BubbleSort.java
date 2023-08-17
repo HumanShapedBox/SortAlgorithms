@@ -1,11 +1,9 @@
-import java.util.concurrent.atomic.AtomicInteger;
+package sortCollection;
 
-public class BubbleSort extends Sorts{
+public class BubbleSort extends Sorts {
 
-    private String name;
     public BubbleSort(){
-        super(null, 0);
-        this.name = "Пузырьковая сортировка";
+        super(null, 0, "Пузырьковая сортировка");
     }
 
     public void resetCounter(){
@@ -20,8 +18,7 @@ public class BubbleSort extends Sorts{
     @Override
     public int getCounter() {
         try{
-            int count = Integer.parseInt(String.valueOf(this.counter));
-            return count;
+            return Integer.parseInt(String.valueOf(this.counter));
         }catch (NumberFormatException e){
             return 0;
         }

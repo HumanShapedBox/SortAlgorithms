@@ -1,10 +1,9 @@
-public class QuickSort extends Sorts{
+package sortCollection;
 
-    private String name;
+public class QuickSort extends Sorts {
 
     public QuickSort(){
-        super(null, 0);
-        this.name = "Быстрая сортировка";
+        super(null, 0, "Быстрая сортировка");
     }
     @Override
     public String sortName() {
@@ -14,8 +13,7 @@ public class QuickSort extends Sorts{
     @Override
     public int getCounter() {
         try{
-            int count = Integer.parseInt(String.valueOf(this.counter));
-            return count;
+            return Integer.parseInt(String.valueOf(this.counter));
         }catch (NumberFormatException e){
             return 0;
         }

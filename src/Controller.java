@@ -11,15 +11,15 @@ public class Controller {
         ArrayList firstSort = startSmallSort(sortNum);
         sortNum = chooseSort();
         ArrayList secondSort = startSmallSort(sortNum);
+        //Вызываем компоратор (ему два листа на вход)
 
     }
 
     public void bigSortBattle(){
         int sortNum = chooseSort();
-        startBigSort(sortNum);
-
+        ArrayList firstSort = startBigSort(sortNum);
         sortNum = chooseSort();
-        startBigSort(sortNum);
+        ArrayList secondSort = startBigSort(sortNum);
     }
 
     public void results(){

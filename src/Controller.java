@@ -8,18 +8,20 @@ public class Controller {
 
     public void smallSortBattle(){
         int sortNum = chooseSort();
-        ArrayList firstSort = startSmallSort(sortNum);
+        ArrayList<Sorts> arr = new ArrayList<>();
+        arr.add(startSmallSort(sortNum));
         sortNum = chooseSort();
-        ArrayList secondSort = startSmallSort(sortNum);
+        arr.add(startSmallSort(sortNum));
         //Вызываем компоратор (ему два листа на вход)
 
     }
 
     public void bigSortBattle(){
         int sortNum = chooseSort();
-        ArrayList firstSort = startBigSort(sortNum);
+        ArrayList<Sorts> arr = new ArrayList<>();
+        arr.add(startBigSort(sortNum));
         sortNum = chooseSort();
-        ArrayList secondSort = startBigSort(sortNum);
+        arr.add(startBigSort(sortNum));
     }
 
     public void results(){
@@ -46,86 +48,59 @@ public class Controller {
         }
     }
 
-    private ArrayList startSmallSort(int sortNum){
+    private Sorts startSmallSort(int sortNum){
         int[] smallArr= arr.getSmallArray();
-        ArrayList sortData = new ArrayList();
-        arr.getSmallArray();
         switch (sortNum) {
             case 1:
                 BubbleSort sort1 = new BubbleSort();
                 sort1.doSort(smallArr);
-                sortData.add(sort1.getCounter());
-                sortData.add(sort1.getTimer());
-                break;
+                return sort1;
             case 2:
                 SelectionSort sort2 = new SelectionSort();
                 sort2.doSort(smallArr);
-                sortData.add(sort2.getCounter());
-                sortData.add(sort2.getTimer());
-                break;
+                return sort2;
             case 3:
                 InsertionSort sort3 = new InsertionSort();
                 sort3.doSort(smallArr);
-                sortData.add(sort3.getCounter());
-                sortData.add(sort3.getTimer());
-                break;
+                return sort3;
             case 4:
                 QuickSort sort4 = new QuickSort();
                 sort4.doSort(smallArr);
-                sortData.add(sort4.getCounter());
-                sortData.add(sort4.getTimer());
-                break;
+                return sort4;
             case 5:
                 HeapSort sort5 = new HeapSort();
                 sort5.doSort(smallArr);
-                sortData.add(sort5.getCounter());
-                sortData.add(sort5.getTimer());
-                break;
+                return sort5;
             default:
-                chooseSort();
+                return null;
         }
-        return sortData;
     }
 
-    private ArrayList startBigSort(int sortNum){
+    private Sorts startBigSort(int sortNum){
         int[] bigArr= arr.getBigArray();
-        ArrayList sortData = new ArrayList();
         switch (sortNum) {
             case 1:
                 BubbleSort sort1 = new BubbleSort();
                 sort1.doSort(bigArr);
-                sortData.add(sort1.getCounter());
-                sortData.add(sort1.getTimer());
-                break;
+                return sort1;
             case 2:
                 SelectionSort sort2 = new SelectionSort();
                 sort2.doSort(bigArr);
-                sortData.add(sort2.getCounter());
-                sortData.add(sort2.getTimer());
-                break;
+                return sort2;
             case 3:
                 InsertionSort sort3 = new InsertionSort();
                 sort3.doSort(bigArr);
-                sortData.add(sort3.getCounter());
-                sortData.add(sort3.getTimer());
-                break;
+                return sort3;
             case 4:
                 QuickSort sort4 = new QuickSort();
                 sort4.doSort(bigArr);
-                sortData.add(sort4.getCounter());
-                sortData.add(sort4.getTimer());
-                break;
+                return sort4;
             case 5:
                 HeapSort sort5 = new HeapSort();
                 sort5.doSort(bigArr);
-                sortData.add(sort5.getCounter());
-                sortData.add(sort5.getTimer());
-                break;
+                return sort5;
             default:
-                chooseSort();
+                return null;
         }
-        return sortData;
     }
-
-
 }

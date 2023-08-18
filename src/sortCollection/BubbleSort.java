@@ -1,9 +1,11 @@
 package sortCollection;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class BubbleSort extends Sorts {
 
     public BubbleSort(){
-        super(null, 0, "Пузырьковая сортировка");
+        super(new AtomicInteger(0), 0, "Пузырьковая сортировка");
     }
 
     @Override

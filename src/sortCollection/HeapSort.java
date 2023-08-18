@@ -1,9 +1,11 @@
 package sortCollection;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class HeapSort extends Sorts {
 
     public HeapSort(){
-        super(null, 0, "Пирамидальная сортировка");
+        super(new AtomicInteger(0), 0, "Пирамидальная сортировка");
     }
 
     @Override

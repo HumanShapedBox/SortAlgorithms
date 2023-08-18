@@ -1,9 +1,11 @@
 package sortCollection;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class InsertionSort extends Sorts {
 
     public InsertionSort(){
-        super(null, 0, "Сортировка вставками");
+        super(new AtomicInteger(0), 0, "Сортировка вставками");
     }
 
     @Override

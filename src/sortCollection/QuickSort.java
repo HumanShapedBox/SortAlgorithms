@@ -1,9 +1,11 @@
 package sortCollection;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class QuickSort extends Sorts {
 
     public QuickSort(){
-        super(null, 0, "Быстрая сортировка");
+        super(new AtomicInteger(0), 0, "Быстрая сортировка");
     }
 
     @Override

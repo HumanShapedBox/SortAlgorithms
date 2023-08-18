@@ -1,9 +1,11 @@
 package sortCollection;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class SelectionSort extends Sorts {
 
     public SelectionSort(){
-        super(null, 0, "Сортировка выбором");
+        super(new AtomicInteger(0), 0, "Сортировка выбором");
     }
     @Override
     public void doSort(int[] array) {

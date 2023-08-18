@@ -5,27 +5,35 @@ import java.util.Scanner;
 
 public class Controller {
     ArraysForSort arr = new ArraysForSort();
+    ArrayList<Sorts> sortedData;
 
     public void smallSortBattle(){
         int sortNum = chooseSort();
-        ArrayList<Sorts> arr = new ArrayList<>();
-        arr.add(startSmallSort(sortNum));
+        ArrayList<Sorts> data = new ArrayList<>();
+        data.add(startSmallSort(sortNum));
         sortNum = chooseSort();
-        arr.add(startSmallSort(sortNum));
-        //Вызываем компоратор (ему два листа на вход)
-
+        data.add(startSmallSort(sortNum));
+        CompareSorts cmp = new CompareSorts(data);
+        this.sortedData = cmp.getWinner();
     }
 
     public void bigSortBattle(){
         int sortNum = chooseSort();
-        ArrayList<Sorts> arr = new ArrayList<>();
-        arr.add(startBigSort(sortNum));
+        ArrayList<Sorts> data = new ArrayList<>();
+        data.add(startBigSort(sortNum));
         sortNum = chooseSort();
-        arr.add(startBigSort(sortNum));
+        data.add(startBigSort(sortNum));
+        CompareSorts cmp = new CompareSorts(data);
+        this.sortedData = cmp.getWinner();
     }
 
-    public void results(){
-        //печатает статистику, делает вывод, кто молодец
+    public void smallResults(){
+        System.out.println("Итоги сортировки небольших массивов");
+        for (Sorts data: this.sortedData) {
+            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время: %f\n",
+                    data.sortName(), data.getCounter(), data.getTimer());
+        }
+        System.out.printf("Победитель - %s", sortedData.get(0).sortName());
     }
 
 

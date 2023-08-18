@@ -12,7 +12,11 @@ public class CompareSorts {
         this.array = data;
     }
 
-    public void winner(){
+    public ArrayList<Sorts> getWinner(){
+        return this.array;
+    }
+
+    private void winner(){
         Collections.sort(
                 this.array,
                 (t0, t1) -> {

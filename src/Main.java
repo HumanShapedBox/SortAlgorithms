@@ -5,5 +5,7 @@ public class Main {
         Controller battle = new Controller();
         battle.smallSortBattle();
         battle.smallResults();
+        battle.bigSortBattle();
+        battle.bigResults();
         }
 }

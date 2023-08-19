@@ -40,9 +40,17 @@ public class Controller {
             System.out.printf("%s\nКоличество операций: %d\nЗатраченное время: %d\n",
                     data.sortName(), data.getCounter(), data.getTimer());
         }
-        System.out.printf("Победитель - %s", sortedData.get(0).sortName());
+        System.out.printf("Победитель - %s\n", sortedData.get(0).sortName());
     }
 
+    public void bigResults(){
+        System.out.println("Итоги сортировки больших массивов");
+        for (Sorts data: this.sortedData) {
+            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время: %d\n",
+                    data.sortName(), data.getCounter(), data.getTimer());
+        }
+        System.out.printf("Победитель - %s\n", sortedData.get(0).sortName());
+    }
 
     private String chooseSort(){
         Scanner sc = new Scanner(System.in);

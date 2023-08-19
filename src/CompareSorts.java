@@ -13,6 +13,7 @@ public class CompareSorts {
     }
 
     public ArrayList<Sorts> getWinner(){
+        winner();
         return this.array;
     }
 

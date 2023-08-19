@@ -9,7 +9,7 @@ public class SelectionSort extends Sorts {
     }
     @Override
     public void doSort(int[] array) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         for(int i = 0; i < array.length; i++){
             int min = i;
             for(int j = i+1; j < array.length; j++){
@@ -22,7 +22,7 @@ public class SelectionSort extends Sorts {
             }
             counter.incrementAndGet();
         }
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
         this.timer = end - start;
     }
 

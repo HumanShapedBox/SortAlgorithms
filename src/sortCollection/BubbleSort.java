@@ -10,7 +10,7 @@ public class BubbleSort extends Sorts {
 
     @Override
     public void doSort(int[] array) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         boolean needSort;
         do{
             needSort = false;
@@ -24,7 +24,7 @@ public class BubbleSort extends Sorts {
                 counter.incrementAndGet();
             }
         }while (needSort);
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
         this.timer = end - start;
     }
 }

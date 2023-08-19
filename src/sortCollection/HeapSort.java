@@ -10,7 +10,7 @@ public class HeapSort extends Sorts {
 
     @Override
     public void doSort(int[] array) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         for(int i = array.length / 2 - 1; i >= 0; i--){
             heapHelper(array, array.length, i);
             counter.incrementAndGet();
@@ -22,7 +22,7 @@ public class HeapSort extends Sorts {
             heapHelper(array, i, 0);
             counter.incrementAndGet();
         }
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
         this.timer = end - start;
     }
 

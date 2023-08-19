@@ -10,11 +10,11 @@ public class QuickSort extends Sorts {
 
     @Override
     public void doSort(int[] array) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         int begin = 0;
         int end = array.length - 1;
         sort(array, begin, end);
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         this.timer = endTime - start;
     }
     private void sort(int arr[], int begin, int end) {

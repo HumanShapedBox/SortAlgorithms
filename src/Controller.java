@@ -37,7 +37,7 @@ public class Controller {
     public void smallResults(){
         System.out.println("Итоги сортировки небольших массивов");
         for (Sorts data: this.sortedData) {
-            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время: %d\n",
+            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время (нс): %d\n",
                     data.sortName(), data.getCounter(), data.getTimer());
         }
         System.out.printf("Победитель - %s\n", sortedData.get(0).sortName());
@@ -46,7 +46,7 @@ public class Controller {
     public void bigResults(){
         System.out.println("Итоги сортировки больших массивов");
         for (Sorts data: this.sortedData) {
-            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время: %d\n",
+            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время (нс): %d\n",
                     data.sortName(), data.getCounter(), data.getTimer());
         }
         System.out.printf("Победитель - %s\n", sortedData.get(0).sortName());

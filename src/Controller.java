@@ -17,7 +17,6 @@ public class Controller {
     }
 
     public void smallSortBattle(){
-//        String userData = chooseSort();
         setNums(parseUserData(chooseSort()));
         ArrayList<Sorts> data = new ArrayList<>();
         data.add(startSmallSort(firstSort));
@@ -27,6 +26,9 @@ public class Controller {
     }
 
     public void bigSortBattle(){
+        for (Sorts sort: sortedData) {
+            sort.resetCounter();
+        }
         ArrayList<Sorts> data = new ArrayList<>();
         data.add(startBigSort(firstSort));
         data.add(startBigSort(secondSort));
@@ -37,16 +39,16 @@ public class Controller {
     public void smallResults(){
         System.out.println("Итоги сортировки небольших массивов");
         for (Sorts data: this.sortedData) {
-            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время (нс): %d\n",
+            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время (нс): %d\n***\n",
                     data.sortName(), data.getCounter(), data.getTimer());
         }
-        System.out.printf("Победитель - %s\n", sortedData.get(0).sortName());
+        System.out.printf("Победитель - %s\n***\n", sortedData.get(0).sortName());
     }
 
     public void bigResults(){
         System.out.println("Итоги сортировки больших массивов");
         for (Sorts data: this.sortedData) {
-            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время (нс): %d\n",
+            System.out.printf("%s\nКоличество операций: %d\nЗатраченное время (нс): %d\n***\n",
                     data.sortName(), data.getCounter(), data.getTimer());
         }
         System.out.printf("Победитель - %s\n", sortedData.get(0).sortName());
@@ -77,14 +79,26 @@ public class Controller {
         }catch (IndexOutOfBoundsException e){
             System.out.println("Требуется только 2 числа, попробуйте ещё раз");
         }
-        finally {
-            return nums;
-        }
+        return nums;
     }
 
     private void setNums(int[] nums){
-        this.firstSort = nums[0];
-        this.secondSort = nums[1];
+        if(checkNums(nums)){
+            this.firstSort = nums[0];
+            this.secondSort = nums[1];
+        }else {
+            setNums(parseUserData(chooseSort()));
+        }
+    }
+
+    private boolean checkNums(int[] nums){
+        boolean flag = true;
+        if(nums[0] < 1 || nums[0] > 5
+        || nums[1] <1 || nums[1] > 5){
+            System.out.println("Что-то пошло не так");
+            flag = false;
+        }
+        return flag;
     }
 
     private Sorts startSmallSort(int sortNum){

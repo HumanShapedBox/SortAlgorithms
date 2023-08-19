@@ -29,7 +29,7 @@ public abstract class Sorts implements GetSortData {
     }
 
     @Override
-    public void resetCounter() {this.counter = null;}
+    public void resetCounter() {this.counter.set(0);}
 
     @Override
     public long getTimer() {
